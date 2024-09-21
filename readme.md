@@ -32,14 +32,14 @@ A estrutura deve implementar as seguintes funcionalidades:
 > **Observação:** Não é permitido utilizar estruturas de dados já implementadas por bibliotecas.
 ---
 ### **2. Ordenar por Média Final**
-- [ ] **Em andamento**
+- [x] **Concluído**
 
 Implemente uma nova funcionalidade que ordene os alunos pela média final usando o algoritmo **SelectionSort** de forma recursiva.
 
 ---
 
 ### **3. Ordenar por Matrícula**
-- [ ] **Em andamento**
+- [x] **Concluído**
 
 Implemente a ordenação dos alunos por matrícula utilizando também o algoritmo **SelectionSort** recursivo.
 
@@ -78,7 +78,7 @@ independente da lista estar vazia ou nao, a variavel ultimo sempre irá apontar 
 ---
 ### Função `remover()`
 ```java
-public void remover(String matricula){
+public void remover(int matricula){
    if (this.cabeca == null){return;}
 
    if (this.cabeca.getDado().getMatricula().equals(matricula)) {
@@ -87,7 +87,7 @@ public void remover(String matricula){
    }
 
    for(No atual = cabeca, anterior = null; atual != null;anterior = atual, atual = atual.getProximo()){
-      if (anterior != null && atual.getDado().getMatricula().equals(matricula)){
+      if (anterior != null && atual.getDado().getMatricula() == matricula){
          anterior.setProximo(atual.getProximo());
          return;
       }
@@ -105,3 +105,62 @@ o seu nó proximo e saimos da função.
   - Depois percorremos verificando se o aluno no Nó atual tem a matricula informada, se tiver
   setamos o Nó `anterior.setProximo()` para o Nó `atual.proximo()`;
   - No final do loop anterior vai receber o atual e o atual recebe `atual.proximo()`
+
+---
+
+### Função `ordernarPorMedia()`
+
+```java
+public void ordenarPorMedia() {
+  ordenarPorMedia(this.cabeca);
+}
+```
+Inicia a ordenação recursiva a partir do nó cabeça
+
+```java
+private void ordenarPorMedia(No atual) {
+  if (atual == null) {
+    return;
+  }
+
+  // Encontra o nó com a menor média a partir do nó atual
+  No menorNo = encontrarMenor(atual);
+
+  // Se o menor nó não for o nó atual, troca os dados
+  if (menorNo != atual) {
+    trocarDados(atual, menorNo);
+  }
+
+  // Chama recursivamente para ordenar o restante da lista
+  ordenarPorMedia(atual.getProximo());
+}
+```
+```java
+private No encontrarMenor(No inicio) {
+  // Inicia a busca pelo menor nó a partir do nó dado
+  return encontrarMenor(inicio, inicio);
+}
+
+private No encontrarMenor(No atual, No menorNo) {
+  // Caso base: ao final da lista, retorna o menor nó encontrado
+  if (atual == null) {
+    return menorNo;
+  }
+
+  // Atualiza o menor nó se encontrar um nó com média menor
+  if (atual.getDado().getMedia() < menorNo.getDado().getMedia()) {
+    menorNo = atual;
+  }
+
+  // Chama recursivamente para o próximo nó
+  return encontrarMenor(atual.getProximo(), menorNo);
+}
+```
+```java
+private void trocarDados(No no1, No no2) {
+  // Troca os dados entre os dois nós
+  Aluno temp = no1.getDado();
+  no1.setDado(no2.getDado());
+  no2.setDado(temp);
+}
+```

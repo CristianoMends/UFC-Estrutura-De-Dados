@@ -1,0 +1,5 @@
+560000,luva de pedreiro,3.5
+100000,lula,5.5
+600000,manuel gomes,8.5
+500000,bolsonaro,6.0
+558382,Cristiano Mendes,10.0

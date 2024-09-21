@@ -1,0 +1,5 @@
+Nome:     albert, matricula:     1, Média: 3.5
+Nome:      Chico, matricula:     2, Média: 5.5
+Nome:    rodrigo, matricula:     3, Média: 8.5
+Nome:  Cristiano, matricula:     4, Média: 6.0
+Nome:       Jose, matricula:     6, Média: 5.6

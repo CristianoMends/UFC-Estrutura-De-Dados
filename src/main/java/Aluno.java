@@ -1,18 +1,18 @@
 package main.java;
 
 public class Aluno {
-    private String matricula;
+    private int matricula;
     private String nome;
     private Double mediaFinal;
 
-    public Aluno(String m, String n, Double mf){
+    public Aluno(int m, String n, Double mf){
         this.matricula = m;
         this.nome = n;
         this.mediaFinal = mf;
     }
 
     //get e set---
-    public String getMatricula(){
+    public Integer getMatricula(){
         return this.matricula;
     }
     public String getNome(){
@@ -21,7 +21,7 @@ public class Aluno {
     public Double getMedia(){
         return this.mediaFinal;
     }
-    public void setMatricula(String m){
+    public void setMatricula(int m){
         this.matricula = m;
     }
     public void setNome(String n){
@@ -33,10 +33,6 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "Aluno{" +
-                "matricula='" + matricula + '\'' +
-                ", nome='" + nome + '\'' +
-                ", mediaFinal=" + mediaFinal +
-                '}';
+        return  String.format("Nome: %20s, matricula: %5d, Média: %.1f",nome, matricula, mediaFinal);
     }
 }
