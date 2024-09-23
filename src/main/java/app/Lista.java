@@ -1,4 +1,4 @@
-package main.java;
+package main.java.app;
 
 public class Lista {
     private No cabeca;
@@ -27,12 +27,14 @@ public class Lista {
 
         if (this.cabeca.getDado().getMatricula().equals(matricula)) {
             this.cabeca = this.cabeca.getProximo();
+            this.quantidade--;
             return;
         }
 
         for(No atual = cabeca, anterior = null; atual != null;anterior = atual, atual = atual.getProximo()){
-            if (anterior != null && atual.getDado().getMatricula().equals(matricula)){
+            if (anterior != null && atual.getDado().getMatricula() == matricula){
                 anterior.setProximo(atual.getProximo());
+                this.quantidade--;
                 return;
             }
         }
