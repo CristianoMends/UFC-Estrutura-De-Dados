@@ -38,46 +38,38 @@ public class Lista {
         }
     }
 
-    //------------------------------
-
-    public void ordenarPorMedia() {
-        ordenarPorMedia(this.cabeca);
+    //------------------------------------------------------------------------------------------
+    //função para ordenar a lista por media
+    public void sortByMedia(){
+        this.sortByMedia(this.cabeca);
     }
+    private void sortByMedia(No atual){
+        if (atual == null){return;}
 
-    private void ordenarPorMedia(No atual) {
-        if (atual == null) { return; }
+        No noComMenorMedia = findNoComMenorMedia(atual, atual);
 
-        No menorNo = encontrarMenorMedia(atual);
-
-        if (menorNo != atual) {
-            trocarDados(atual, menorNo);
+        if (noComMenorMedia != atual){
+            this.trocarDados(noComMenorMedia, atual);
         }
-
-        ordenarPorMedia(atual.getProximo());
+        sortByMedia(atual.getProximo());
     }
+    private No findNoComMenorMedia(No atual, No menor){//percorre a lista apartir de um nó
+        if (atual == null){ return menor; }
 
-    private No encontrarMenorMedia(No inicio) {
-        return encontrarMenorMedia(inicio, inicio);
-    }
-
-    private No encontrarMenorMedia(No atual, No menorNo) {
-        if (atual == null) { return menorNo; }
-
-        if (atual.getDado().getMedia() < menorNo.getDado().getMedia()) {
-            menorNo = atual;
+        if (atual.getDado().getMedia() < menor.getDado().getMedia()){
+            menor = atual;
         }
-
-        return encontrarMenorMedia(atual.getProximo(), menorNo);
+        return findNoComMenorMedia(atual.getProximo(), menor);
     }
-
+    //--------------------------------------------------------------------------------------------
+    //Função para ordenar alunos por matricula
     public void sortByMatricula() {
         sortByMatricula(this.cabeca);
     }
-
     private void sortByMatricula(No atual) {
         if (atual == null) { return; }
 
-        No menorNo = encontrarMenorMatricula(atual);
+        No menorNo = findNoComMenorMatricula(atual, atual);
 
         if (menorNo != atual) {
             trocarDados(atual, menorNo);
@@ -85,35 +77,29 @@ public class Lista {
 
         sortByMatricula(atual.getProximo());
     }
-
-    private No encontrarMenorMatricula(No inicio) {
-        return encontrarMenorMatricula(inicio, inicio);
-    }
-
-    private No encontrarMenorMatricula(No atual, No menorNo) {
+    private No findNoComMenorMatricula(No atual, No menorNo) {
         if (atual == null) { return menorNo; }
 
         if (atual.getDado().getMatricula() < menorNo.getDado().getMatricula()) {
             menorNo = atual;
         }
 
-        return encontrarMenorMatricula(atual.getProximo(), menorNo);
+        return findNoComMenorMatricula(atual.getProximo(), menorNo);
     }
     //-------------------------------------------------------------------------------------------------------
     //Função para buscar um aluno por matricula com busca binaria recursiva
-
     public Aluno getByMatricula(int matricula){
         this.sortByMatricula();
-        return getByMatricula(0, quantidade - 1, matricula);
-    }
-    private Aluno getByMatricula(int inicio, int fim, int matricula){
-        if (inicio > fim){return null;}
-
-        int meio = (inicio+fim)/2;
         Aluno[] alunos = this.toVetor();
+        return getByMatricula(0, quantidade - 1, matricula, alunos);
+    }
+    private Aluno getByMatricula(int inicio, int fim, int matricula, Aluno[] alunos){
+        if (inicio > fim){ return null; }
 
-             if(alunos[meio].getMatricula() < matricula) { return getByMatricula(meio + 1, fim, matricula); }
-        else if(alunos[meio].getMatricula() > matricula) { return getByMatricula(inicio, meio - 1, matricula); }
+        int meio = ( inicio + fim ) / 2;
+
+             if(alunos[meio].getMatricula() < matricula) { return getByMatricula(meio + 1, fim, matricula, alunos); }
+        else if(alunos[meio].getMatricula() > matricula) { return getByMatricula(inicio, meio - 1, matricula, alunos); }
 
         return alunos[meio];
     }

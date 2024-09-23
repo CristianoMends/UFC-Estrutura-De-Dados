@@ -1,0 +1,31 @@
+Lista criada
+Lista por ordem de inserção:
+Nome:     luva de pedreiro, matricula: 560000, Média: 5.5
+Nome:                 lula, matricula: 100000, Média: 1.5
+Nome:         manuel gomes, matricula: 600000, Média: 4.5
+Nome:     Cristiano Mendes, matricula: 558382, Média: 10.0
+Nome:            bolsonaro, matricula: 500000, Média: 6.0
+
+
+Lista ordenada por media: 
+Nome:                 lula, matricula: 100000, Média: 1.5
+Nome:         manuel gomes, matricula: 600000, Média: 4.5
+Nome:     luva de pedreiro, matricula: 560000, Média: 5.5
+Nome:            bolsonaro, matricula: 500000, Média: 6.0
+Nome:     Cristiano Mendes, matricula: 558382, Média: 10.0
+
+Lista ordenada por matricula: 
+Nome:                 lula, matricula: 100000, Média: 1.5
+Nome:            bolsonaro, matricula: 500000, Média: 6.0
+Nome:     Cristiano Mendes, matricula: 558382, Média: 10.0
+Nome:     luva de pedreiro, matricula: 560000, Média: 5.5
+Nome:         manuel gomes, matricula: 600000, Média: 4.5
+
+Buscando por matricula: 558382
+Nome:     Cristiano Mendes, matricula: 558382, Média: 10.0
+removendo por matricula: 558382
+resultado: 
+Nome:                 lula, matricula: 100000, Média: 1.5
+Nome:            bolsonaro, matricula: 500000, Média: 6.0
+Nome:     luva de pedreiro, matricula: 560000, Média: 5.5
+Nome:         manuel gomes, matricula: 600000, Média: 4.5
