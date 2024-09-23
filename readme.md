@@ -51,7 +51,7 @@ Implemente a ordenação dos alunos por matrícula utilizando também o algoritm
 ---
 
 ### **4. Busca Binária por Matrícula**
-- [x] **Em andamento**
+- [x] **Concluído**
 
 Implemente uma busca binária recursiva para encontrar um aluno pela matrícula. Lembre-se de que os alunos devem estar ordenados por matrícula para que a busca funcione corretamente.
 
