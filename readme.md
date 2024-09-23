@@ -5,6 +5,7 @@
   - [Tarefas](#tarefas)
   - [Algoritmos Utilizados](#algoritmos-utilizados)
   - [Diagramas](#diagramas)
+  - [Como executar](#como-executar)
 
 Este trabalho prático tem como objetivo implementar e manipular uma estrutura de dados personalizada para armazenar informações de alunos de uma turma. O projeto envolve operações básicas de inclusão, remoção, listagem e ordenação de alunos, além da busca eficiente por matrícula.
 
@@ -34,6 +35,9 @@ A estrutura deve implementar as seguintes funcionalidades:
 - Incluir novo aluno
 - Remover aluno por matrícula
 - Listar todos os alunos
+- Importar alunos de arquivo
+
+> **Observação:** adicione uma lista de alunos ao arquivo file/alunos.txt, separados por virgula. ex: `558080,Cristiano Mendes,8`
 
 ---
 ### **2. Ordenar por Média Final**
@@ -75,3 +79,20 @@ A Busca Binária é um algoritmo de busca eficiente que funciona em tempo O(log 
 
 #### Buscar aluno por matricula com busca binaria recursiva
 <img src="docs/diagrama_busca_binaria.png" alt="Diagrama de fluxo, buscar aluno por matricula">
+
+## Como executar
+
+### Compile os Arquivos:
+abra na pasta do projeto e adicione o comando:
+
+```bash
+javac -d out src/main/java/app/*.java
+```
+`Isso compilará todos os arquivos Java e os colocará na pasta out.`
+
+### Execute o Programa:
+Após a compilação, você pode executar a classe principal usando o comando java.
+
+```bash
+java -cp out main.java.app.Launch
+```
